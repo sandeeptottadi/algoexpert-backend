@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 env.config();
 mongoose.set('strictQuery', true)
-mongoose.connect(`mongodb+srv://sandeeptottadi:${process.env.Database_password}@cluster0.yc9wurs.mongodb.net/?retryWrites=true&w=majority`, {useNewUrlParser: true})
+mongoose.connect(`mongodb+srv://sandeeptottadi:${process.env.Database_password}@cluster0.yc9wurs.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true })
 const db = mongoose.connection;
 
 db.once("open", () => {
@@ -20,10 +20,10 @@ db.once("open", () => {
 })
 
 app.use(cors({
-  origin: "*",
+    origin: "*",
 }));
 
-app.get((req, res) => {
+app.get("/", (req, res) => {
     res.send("Hello World!")
 })
 
